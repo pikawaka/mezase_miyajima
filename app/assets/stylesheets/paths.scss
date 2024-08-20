@@ -1,3 +1,106 @@
-// Place all the styles related to the Paths controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  font-family: "M PLUS 1p", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.center-image {
+  width: 500px;
+  height: 500px;
+}
+
+.image-container {
+  position: relative;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+
+.form-container {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // background: rgba(255, 255, 255, 0.7);
+  // padding: 10px;
+  // border-radius: 5px;
+}
+
+.form-container .actions {
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit_button {
+  padding: .3rem .5rem;
+}
+
+.submit_button,
+.form_select {
+  // background-color: black;
+  // color: white;
+  padding: .3rem .5rem;
+  border-radius: 4px;
+  appearance: none;
+  // background-image: url('path_to_custom_arrow.png');
+  // background-repeat: no-repeat;
+  // background-position: right 10px center;
+}
+
+.form_select:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.notice {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f8d7da;
+  padding: .3rem 1rem;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+  animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

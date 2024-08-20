@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>QiitaTrendArticles</title>
+    <title>目指せ宮嶋！</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag('favicon.ico') %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap" rel="stylesheet"> 
   </head>
 
   <body>
+    <% if flash.notice %>
+      <p class="notice"><%= flash.notice %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

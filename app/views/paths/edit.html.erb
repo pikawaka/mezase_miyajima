@@ -1,12 +1,33 @@
-<h1>Edit Path</h1>
 
-<%= form_with(model: @path, url: update_path, local: true, method: :patch) do |form| %>
-  <div class="field">
-    <%= form.label :path %>
-    <%= form.text_field :path, id: :path_path %>
-  </div>
+<div class="container">
+  <h1>目指せ宮嶋！</h1>
 
-  <div class="actions">
-    <%= form.submit "Save" %>
+  <p>このアプリはキータの最新記事５件を取得するアプリです。</p>
+
+  <div class="image-container">
+    <%= image_tag("profile.png", alt: "miyajima-sensei", class: "center-image") %>
+
+    <div class="form-container">
+      <%= form_with(model: @path, url: update_path, local: true, method: :patch) do |form| %>
+        <div class="field">
+          <%# <%= form.label :path, "タグ名" %> 
+          <%# <%= form.text_field :path, id: :path_path %>
+          <% options = [
+            ["タグを選択して下さい", "https://qiita.com/"],
+            ["ruby", "https://qiita.com/tags/ruby"],
+            ["python", "https://qiita.com/tags/python"], 
+            ["javascript", "https://qiita.com/tags/javascript"] 
+            ] 
+          %>
+          <%= form.select :path, options, {}, class: "form_select" %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit "記事を取得する", class: "submit_button" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
+
+
