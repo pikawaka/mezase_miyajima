@@ -22,15 +22,11 @@ class PathsController < ApplicationController
   
   def self.slack_bot(articles)
     notifier = Slack::Notifier.new ENV['WEBHOOK_URL'] do
-      defaults channel: "#workshop",username: "通知BOT"
+      defaults channel: "#workshop",username: "目指せ宮嶋"
     end
-    
     articles.unshift("【おはようございます。本日の新着記事です!】")
-    articles.join("\n")
-    
-    notifier.ping articles each do |article|  # Slackに通知するメッセージ
-                  end 
+    message = articles.join("\n")
+    notifier.ping message  # Slackに通知するメッセージ
   end
-
   
 end
