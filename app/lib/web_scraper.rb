@@ -32,7 +32,7 @@ class WebScraper
     post_title_links = []
     page.search('.style-2vm86z', 'a').each do |element|
       post_title_link = element.get_attribute('href')
-      post_title_links << url + post_title_link if post_title_link.present?
+      post_title_links << post_title_link if post_title_link.present?
     end
     
     post_title_links[0..4].each do |link|
