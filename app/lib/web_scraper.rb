@@ -51,5 +51,14 @@ class WebScraper
   links_href = links.map(&:href)
   puts links_href
  end
+ 
+  def self.slack_bot(articles)
+    notifier = Slack::Notifier.new ENV['WEBHOOK_URL'] do
+      defaults channel: "#workshop",username: "目指せ宮嶋"
+    end
+    articles.unshift("【おはようございます。本日の新着記事です!】")
+    message = articles.join("\n")
+    notifier.ping message  # Slackに通知するメッセージ
+  end
 
 end
