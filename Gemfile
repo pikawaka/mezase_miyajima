@@ -46,7 +46,8 @@ group :development do
   gem 'spring'
   gem 'mechanize'
   gem "slack-notifier"
-  gem "dotenv-rails"
+  gem "dotenv-rails", groups: [:development]
+  gem 'pry-rails'
 end
 
 group :test do
