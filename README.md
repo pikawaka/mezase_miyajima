@@ -1,24 +1,5 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#rails cを開いて以下の手順で実行できます
+# 1.記事の取得
+article = WebScraper.get_qiita_post_titles_links
+# 2.slackに通知
+PathsController.slack_bot(article)
