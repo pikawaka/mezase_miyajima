@@ -10,24 +10,23 @@
     <div class="form-container">
       <%= form_with(model: @path, url: update_path, local: true, method: :patch) do |form| %>
         <div class="field">
-          <%# <%= form.label :path, "タグ名" %> 
+          <%# <%= form.label :path, "タグ名" %>
           <%# <%= form.text_field :path, id: :path_path %>
           <% options = [
             ["タグを選択して下さい", "https://qiita.com/"],
             ["ruby", "https://qiita.com/tags/ruby"],
-            ["python", "https://qiita.com/tags/python"], 
-            ["javascript", "https://qiita.com/tags/javascript"] 
-            ] 
+            ["python", "https://qiita.com/tags/python"],
+            ["javascript", "https://qiita.com/tags/javascript"]
+            ]
           %>
           <%= form.select :path, options, {}, class: "form_select" %>
         </div>
 
         <div class="actions">
-          <%= form.submit "記事を取得する", class: "submit_button" %>
+
+          <%= form.submit "タグを設定します", class: "submit_button" %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-
-

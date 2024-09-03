@@ -1,5 +1,4 @@
 class WebScraper
-  
 # キータの投稿者名のスクレイピングメソッド
   def self.get_qiita_post_contributors
     agent = Mechanize.new
@@ -20,12 +19,11 @@ class WebScraper
       post_titles_texts << post_title_text.inner_text
     end
     puts post_titles_texts.slice(0..4)
-     
   end
 
   #  キータの投稿の上位５個のリンクを取得するメソッド
   def self.get_qiita_post_titles_links
-    url = 'https://qiita.com'
+    url = Path.find(1).path
     agent = Mechanize.new
     page = agent.get(url)
 
@@ -34,22 +32,19 @@ class WebScraper
       post_title_link = element.get_attribute('href')
       post_title_links << url + post_title_link if post_title_link.present?
     end
-    
     post_title_links[0..4].each do |link|
       puts link
-    end 
+    end
   end
 
-# キータlinksメソッドでページ内全てのリンクを配列として取得する
+  # キータlinksメソッドでページ内全てのリンクを配列として取得する
+  def self.get_qiita_post_titles_links_method
+    url = 'https://qiita.com'
+    agent = Mechanize.new
+    page = agent.get(url)
 
- def self.get_qiita_post_titles_links_method
-  url = 'https://qiita.com'
-  agent = Mechanize.new
-  page = agent.get(url)
-
-  links = page.links
-  links_href = links.map(&:href)
-  puts links_href
- end
-
+    links = page.links
+    links_href = links.map(&:href)
+    puts links_href
+  end
 end
