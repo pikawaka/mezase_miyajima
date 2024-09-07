@@ -28,9 +28,12 @@ class WebScraper
     page = agent.get(url)
 
     post_title_links = []
-    page.search('.style-2vm86z', 'a').each do |element|
-      post_title_link = element.get_attribute('href')
-      post_title_links << url + post_title_link if post_title_link.present?
+    page.search('.style-1nnjrfj article').each do |article_element|
+      link_element = article_element.at('a')
+      if link_element
+        post_title_link = link_element.get_attribute('href')
+        post_title_links << post_title_link if post_title_link.present?
+      end
     end
     post_title_links[0..4].each do |link|
       puts link

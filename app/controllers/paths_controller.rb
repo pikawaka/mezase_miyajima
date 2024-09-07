@@ -23,6 +23,8 @@ class PathsController < ApplicationController
       defaults channel: "#目指せ宮嶋", username: "通知BOT"
     end
 
+    tag = Path.first.path.split('/').last
+    articles.unshift("<設定タグ: #{tag}>")
     articles.unshift("【おはようございます。本日の新着記事です!】")
     message = articles.join("\n")
     notifier.ping message  # Slackに通知するメッセージ
